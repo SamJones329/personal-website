@@ -48,6 +48,7 @@
     </p>
     <img src="flexport_logo.png" alt="Flexport logo" srcset="">
   </div>
+  <span aria-label="click this or scroll right to see more work experience">See More</span>
 </section>
 
 <section class=projects>
@@ -63,8 +64,11 @@
     <p>
       Technologies: Svelte, SvelteKit, TypeScript, Bootstrap, SCSS
     </p>
-    <img src="googlefontboxscreenshot.png" alt="Screenshot of Google Font Box" srcset="">
+    <Link url="https://samjones329.github.io/google-font-box">Try it out!</Link>
+    <Link url="https://github.com/samjones329/google-font-box">GitHub</Link>
+    <img src="googlefontboxscreenshot.png" alt="Screenshot of Google Font Box">
   </div>
+  <span aria-label="click this or scroll right to see more projects">See More</span>
 </section>
 
 <section id=contact>
