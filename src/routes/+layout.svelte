@@ -25,19 +25,22 @@
 		</li>
 	</ul>
 
-	<button aria-label="open site nav drawer" on:click={() => (drawerOpen = !drawerOpen)}>Menu</button
-	>
-	<ul class={drawerOpen ? '' : 'hidden'}>
-		<li>
-			<Link url="/about">More about me</Link>
-		</li>
-		<li>
-			<Link url="/work">Work history</Link>
-		</li>
-		<li>
-			<Link url="/projects">More projects</Link>
-		</li>
-	</ul>
+	<div>
+		<button aria-label="open site nav drawer" on:click={() => (drawerOpen = !drawerOpen)}
+			>Menu</button
+		>
+		<ul class={'absolute ' + (drawerOpen ? '' : 'hidden')}>
+			<li>
+				<Link url="/about">More about me</Link>
+			</li>
+			<li>
+				<Link url="/work">Work history</Link>
+			</li>
+			<li>
+				<Link url="/projects">More projects</Link>
+			</li>
+		</ul>
+	</div>
 </nav>
 
 <slot />

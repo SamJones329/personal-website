@@ -7,7 +7,7 @@
 <nav aria-label="page navigation" class="max-w-max fixed h-full flex items-center pl-4">
 	<ul>
 		<li>
-			<PageLink targetId="">welcome</PageLink>
+			<PageLink targetId="welcome">welcome</PageLink>
 		</li>
 		<li>
 			<PageLink targetId="about">about</PageLink>
