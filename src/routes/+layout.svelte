@@ -9,8 +9,8 @@
 	let drawerOpen = false;
 </script>
 
-<nav aria-label="site navigation">
-	<ul>
+<nav aria-label="site navigation" class="flex flex-row justify-between fixed p-4 w-full">
+	<ul class="flex flex-row">
 		<li>Samuel Jones</li>
 		<li>
 			<Link url="mailto:spjones329@gmail.com"><i class="fa-regular fa-envelope" /></Link>
@@ -41,23 +41,3 @@
 </nav>
 
 <slot />
-
-<nav aria-label="page navigation">
-	<ul>
-		<li>
-			<PageLink targetId="">welcome</PageLink>
-		</li>
-		<li>
-			<PageLink targetId="about">about</PageLink>
-		</li>
-		<li>
-			<PageLink targetId="work">work</PageLink>
-		</li>
-		<li>
-			<PageLink targetId="projects">projects</PageLink>
-		</li>
-		<li>
-			<PageLink targetId="contact">contact</PageLink>
-		</li>
-	</ul>
-</nav>

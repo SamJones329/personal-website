@@ -1,10 +1,34 @@
 <script lang="ts">
 	import Link from '$lib/Link.svelte';
+	import PageLink from '$lib/PageLink.svelte';
+	import Section from '$lib/Section.svelte';
 </script>
 
-<h1>Samuel Jones</h1>
+<nav aria-label="page navigation" class="max-w-max fixed h-full flex items-center pl-4">
+	<ul>
+		<li>
+			<PageLink targetId="">welcome</PageLink>
+		</li>
+		<li>
+			<PageLink targetId="about">about</PageLink>
+		</li>
+		<li>
+			<PageLink targetId="work">work</PageLink>
+		</li>
+		<li>
+			<PageLink targetId="projects">projects</PageLink>
+		</li>
+		<li>
+			<PageLink targetId="contact">contact</PageLink>
+		</li>
+	</ul>
+</nav>
 
-<section id="about">
+<Section id="welcome" className="pt-12">
+	<h1>Samuel Jones</h1>
+</Section>
+
+<Section id="about">
 	<h2>About Me</h2>
 	<p>
 		<strong>Hi!</strong> My name is <strong>Samuel Jones</strong>, and I am a senior in Computer
@@ -27,9 +51,9 @@
 			like backend.
 		</p>
 	</div>
-</section>
+</Section>
 
-<section id="work">
+<Section id="work">
 	<h2>Work Experience</h2>
 	<div>
 		<h3>Flexport</h3>
@@ -44,9 +68,9 @@
 		<img src="flexport_logo.png" alt="Flexport logo" srcset="" />
 	</div>
 	<span aria-label="click this or scroll right to see more work experience">See More</span>
-</section>
+</Section>
 
-<section class="projects">
+<Section id="projects">
 	<h2>My Projects</h2>
 	<div>
 		<h3>Google Font Box</h3>
@@ -61,9 +85,9 @@
 		<img src="googlefontboxscreenshot.png" alt="Screenshot of Google Font Box" />
 	</div>
 	<span aria-label="click this or scroll right to see more projects">See More</span>
-</section>
+</Section>
 
-<section id="contact">
+<Section id="contact">
 	<h2>Contact Me</h2>
 	<div>
 		<img src="logo.svg" alt="Samuel Jones' Logo" />
@@ -94,4 +118,4 @@
 			<button type="submit">Send</button>
 		</form>
 	</div>
-</section>
+</Section>
