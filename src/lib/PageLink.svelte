@@ -1,7 +1,7 @@
 <script lang="ts">
-  export let targetId = "";
+	export let targetId = '';
 </script>
 
 <a href="#{targetId}">
-  <slot />
+	<slot />
 </a>
