@@ -5,3 +5,15 @@
 html {
   scroll-behavior: smooth
 }
+
+body {
+  overflow: hidden
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.text-12xl {
+  font-size: 7.5rem
+}

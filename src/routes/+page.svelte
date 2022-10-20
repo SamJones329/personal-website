@@ -4,10 +4,11 @@
 	import Section from '$lib/Section.svelte';
 	import { throttleEvent } from '$lib/lib';
 	import { onMount } from 'svelte';
+	import SectionHeader from '$lib/SectionHeader.svelte';
 
 	const SECTIONS = ['welcome', 'about', 'work', 'projects', 'contact'];
 	let sectionElems: HTMLCollection; // assumed this order ^
-	let activeSection = 0;
+	let activeSection: number;
 
 	function discreteScroll(e: WheelEvent & { currentTarget: EventTarget & Window }) {
 		e.preventDefault();
@@ -29,15 +30,35 @@
 		}
 	}
 
+	const getActiveSec = () => {
+		for (let i = 0; i < sectionElems.length; i++) {
+			const sec = sectionElems[i];
+			const rect = sec.getBoundingClientRect();
+			if (
+				rect.top >= 0 &&
+				rect.left >= 0 &&
+				rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+				rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+			) {
+				activeSection = i;
+				console.log(`setting active section to ${SECTIONS[i]}`);
+				break;
+			}
+		}
+	};
+
+	// TODO - set current active section when page is refreshed
 	onMount(() => {
 		window.addEventListener('wheel', throttleEvent(discreteScroll, 1000, true), { passive: false });
 		sectionElems = document.getElementsByTagName('section');
 		console.log(sectionElems);
+		getActiveSec();
 	});
 
 	function getClickForSection(idx: number) {
 		return () => {
 			activeSection = idx;
+			console.log('scrolling to ' + SECTIONS[idx]);
 		};
 	}
 </script>
@@ -57,11 +78,11 @@
 </nav>
 
 <Section id="welcome">
-	<h1>Samuel Jones</h1>
+	<h1 class="font-display text-12xl">Samuel<br />Jones</h1>
 </Section>
 
 <Section id="about">
-	<h2>About Me</h2>
+	<SectionHeader>About Me</SectionHeader>
 	<p>
 		<strong>Hi!</strong> My name is <strong>Samuel Jones</strong>, and I am a senior in Computer
 		Science at Louisiana State University.
@@ -86,7 +107,7 @@
 </Section>
 
 <Section id="work">
-	<h2>Work Experience</h2>
+	<SectionHeader>Work Experience</SectionHeader>
 	<div>
 		<h3>Flexport</h3>
 		<p>
@@ -103,7 +124,7 @@
 </Section>
 
 <Section id="projects">
-	<h2>My Projects</h2>
+	<SectionHeader>My Projects</SectionHeader>
 	<div>
 		<h3>Google Font Box</h3>
 		<p>
@@ -120,7 +141,7 @@
 </Section>
 
 <Section id="contact">
-	<h2>Contact Me</h2>
+	<SectionHeader>Contact Me</SectionHeader>
 	<div>
 		<img src="logo.svg" alt="Samuel Jones' Logo" />
 		<Link
