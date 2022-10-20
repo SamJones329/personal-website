@@ -9,7 +9,7 @@
 	let drawerOpen = false;
 </script>
 
-<nav aria-label="site navigation" class="flex flex-row justify-between fixed p-4 w-full">
+<nav aria-label="site navigation" class="flex flex-row justify-between fixed p-4 w-full z-50">
 	<ul class="flex flex-row">
 		<li>Samuel Jones</li>
 		<li>
@@ -27,7 +27,7 @@
 
 	<div>
 		<button aria-label="open site nav drawer" on:click={() => (drawerOpen = !drawerOpen)}
-			>Menu</button
+			><img class="orange-shiny" src="menuicon.svg" alt="" srcset="" /></button
 		>
 		<ul class={'absolute ' + (drawerOpen ? '' : 'hidden')}>
 			<li>

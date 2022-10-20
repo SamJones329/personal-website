@@ -65,7 +65,7 @@
 
 <!-- <svelte:window on:scroll={throttle(discreteScroll, 300)} /> -->
 
-<nav aria-label="page navigation" class="max-w-max fixed h-screen flex items-center pl-4">
+<nav aria-label="page navigation" class="max-w-max fixed h-screen flex items-center pl-4 z-10">
 	<ul>
 		{#each SECTIONS as section, i}
 			<li>
@@ -77,8 +77,27 @@
 	</ul>
 </nav>
 
+<img id="cloudtype2--3" src="LightCloudType2.svg" alt="" />
+<img id="sun" src="Sun.svg" alt="" />
+<img id="cloudtype1--1" src="LightCloudType1.svg" alt="" />
+<img id="cloudtype1--2" src="LightCloudType1.svg" alt="" />
+<img id="cloudtype2--1" src="LightCloudType2.svg" alt="" />
+<img id="cloudtype2--2" src="LightCloudType2.svg" alt="" />
+<img id="cloudtype3--1" src="LightCloudType3.svg" alt="" />
 <Section id="welcome">
-	<h1 class="font-display text-12xl">Samuel<br />Jones</h1>
+	<div class="flex flex-row">
+		<div class="flex flex-col">
+			<h1 class="text-right max-w-max font-display text-10xl">SAMUEL<br />JONES</h1>
+			<img class="w-full pl-8" src="underline.svg" alt="" />
+		</div>
+		<img
+			src="logo.svg"
+			style="display: none;"
+			width="50%"
+			alt="Samuel Jones' Logo"
+			class="horiz-flip"
+		/>
+	</div>
 </Section>
 
 <Section id="about">
@@ -108,19 +127,24 @@
 
 <Section id="work">
 	<SectionHeader>Work Experience</SectionHeader>
-	<div>
-		<h3>Flexport</h3>
-		<p>
-			My most recent experience is my <strong>Full Stack Software Engineer</strong> internship at Flexport.
-			There I owned a support form integration feature end-to-end, heavily refactoring the feature in
-			one application and adding an implementation in another, allowing better user experience and reduced
-			complexity when modifying the support form. This allowed me to work as a full-stack developer in
-			a scrum team on my own project and general tasks, developing with technologies such as React.js,
-			Ruby on Rails, NextJS, Flow, and GraphQL.
-		</p>
-		<img src="flexport_logo.png" alt="Flexport logo" srcset="" />
+	<div class="flex flex-row">
+		<div class="flex flex-col w-1/2">
+			<h3 class="text-4xl font-bold">Flexport</h3>
+			<p class="text-l relative left-4 pr-4">
+				My most recent experience is my <strong>Full Stack Software Engineer</strong> internship at Flexport.
+				There I owned a support form integration feature end-to-end, heavily refactoring the feature
+				in one application and adding an implementation in another, allowing better user experience and
+				reduced complexity when modifying the support form. This allowed me to work as a full-stack developer
+				in a scrum team on my own project and general tasks, developing with technologies such as React.js,
+				Ruby on Rails, NextJS, Flow, and GraphQL.
+			</p>
+		</div>
+		<img src="flexport.jpg" alt="Flexport logo" srcset="" />
 	</div>
-	<span aria-label="click this or scroll right to see more work experience">See More</span>
+	<span
+		class="absolute h-screen flex items-center pr-4 top-0 right-0"
+		aria-label="click this or scroll right to see more work experience">See More</span
+	>
 </Section>
 
 <Section id="projects">
@@ -172,3 +196,57 @@
 		</form>
 	</div>
 </Section>
+
+<style>
+	#cloudtype1--1 {
+		position: absolute;
+		width: 35rem;
+		right: 3.5rem;
+		top: 6.5rem;
+	}
+
+	#cloudtype1--2 {
+		position: absolute;
+		width: 35rem;
+		right: -20rem;
+		top: -4.25rem;
+		transform: rotate(-180deg);
+	}
+
+	#cloudtype2--1 {
+		position: absolute;
+		width: 55rem;
+		right: -17rem;
+		bottom: 1rem;
+	}
+
+	#cloudtype2--2 {
+		position: absolute;
+		width: 50rem;
+		top: -13.5rem;
+		left: 5rem;
+		transform: matrix(-1, 0, 0, 1, 0, 0);
+	}
+
+	#cloudtype2--3 {
+		position: absolute;
+		right: -22rem;
+		top: -1.5rem;
+		width: 50rem;
+		transform: rotate(-180deg);
+	}
+
+	#cloudtype3--1 {
+		position: absolute;
+		width: 28rem;
+		left: 0;
+		bottom: 0;
+	}
+
+	#sun {
+		position: absolute;
+		width: 15rem;
+		right: 3rem;
+		top: 4rem;
+	}
+</style>

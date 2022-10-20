@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -12,8 +13,20 @@ body {
   background-attachment: fixed;
 }
 
+.horiz-flip {
+  transform: scaleX(-1);
+}
+
 .font-display {
   font-family: 'Playfair Display', serif;
+}
+
+.text-8xl {
+  font-size: 5rem;
+}
+
+.text-10xl {
+  font-size: 6.25rem;
 }
 
 .text-12xl {

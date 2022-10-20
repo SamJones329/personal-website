@@ -2,6 +2,6 @@
 	export let id = '';
 </script>
 
-<section {id} class="p-32 h-screen">
+<section {id} class="p-32 h-screen relative">
 	<slot />
 </section>
