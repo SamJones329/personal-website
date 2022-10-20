@@ -2,29 +2,61 @@
 	import Link from '$lib/Link.svelte';
 	import PageLink from '$lib/PageLink.svelte';
 	import Section from '$lib/Section.svelte';
+	import { throttleEvent } from '$lib/lib';
+	import { onMount } from 'svelte';
+
+	const SECTIONS = ['welcome', 'about', 'work', 'projects', 'contact'];
+	let sectionElems: HTMLCollection; // assumed this order ^
+	let activeSection = 0;
+
+	function discreteScroll(e: WheelEvent & { currentTarget: EventTarget & Window }) {
+		e.preventDefault();
+		console.log(e);
+		if (e.deltaY > 0) {
+			//down
+			if (activeSection < SECTIONS.length - 1) {
+				activeSection++;
+				console.log(`scrolling down to ${SECTIONS[activeSection]}`);
+				sectionElems[activeSection]?.scrollIntoView({ behavior: 'smooth' });
+			}
+		} else if (e.deltaY < 0) {
+			//up
+			if (activeSection > 0) {
+				activeSection--;
+				console.log(`scrolling up to ${SECTIONS[activeSection]}`);
+				sectionElems[activeSection]?.scrollIntoView({ behavior: 'smooth' });
+			}
+		}
+	}
+
+	onMount(() => {
+		window.addEventListener('wheel', throttleEvent(discreteScroll, 1000, true), { passive: false });
+		sectionElems = document.getElementsByTagName('section');
+		console.log(sectionElems);
+	});
+
+	function getClickForSection(idx: number) {
+		return () => {
+			activeSection = idx;
+		};
+	}
 </script>
 
-<nav aria-label="page navigation" class="max-w-max fixed h-full flex items-center pl-4">
+<!-- <svelte:window on:scroll={throttle(discreteScroll, 300)} /> -->
+
+<nav aria-label="page navigation" class="max-w-max fixed h-screen flex items-center pl-4">
 	<ul>
-		<li>
-			<PageLink targetId="welcome">welcome</PageLink>
-		</li>
-		<li>
-			<PageLink targetId="about">about</PageLink>
-		</li>
-		<li>
-			<PageLink targetId="work">work</PageLink>
-		</li>
-		<li>
-			<PageLink targetId="projects">projects</PageLink>
-		</li>
-		<li>
-			<PageLink targetId="contact">contact</PageLink>
-		</li>
+		{#each SECTIONS as section, i}
+			<li>
+				<PageLink active={activeSection == i} targetId={section} onClick={getClickForSection(i)}>
+					{section}
+				</PageLink>
+			</li>
+		{/each}
 	</ul>
 </nav>
 
-<Section id="welcome" className="pt-12">
+<Section id="welcome">
 	<h1>Samuel Jones</h1>
 </Section>
 
