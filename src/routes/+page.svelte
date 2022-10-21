@@ -6,6 +6,7 @@
 	import { onMount } from 'svelte';
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import ContentHeader from '$lib/ContentHeader.svelte';
+	import ContentText from '$lib/ContentText.svelte';
 
 	const SECTIONS = ['welcome', 'about', 'work', 'projects', 'contact'];
 	let sectionElems: HTMLCollection; // assumed this order ^
@@ -98,27 +99,29 @@
 
 <Section id="about">
 	<SectionHeader>About Me</SectionHeader>
-	<p class="text-2xl">
+	<!-- <p class="mt-4 text-2xl"> -->
+	<ContentText>
 		<strong>Hi!</strong> My name is <strong>Samuel Jones</strong>, and I am a senior in Computer
 		Science at Louisiana State University.
-	</p>
+	</ContentText>
 	<div class="flex flex-row mt-8">
 		<div class="w-4/12 ml-8">
 			<ContentHeader>Student</ContentHeader>
-			<p class="text-xl">
+			<!-- <p class="text-xl"> -->
+			<ContentText>
 				I love learning about as many aspects of computer science as I can. To this end, I've taken
 				courses and done projects in areas including web development, cybersecurity, video game
 				design, computer vision, and autonomous robotics.
-			</p>
+			</ContentText>
 		</div>
 		<div class="w-4/12 ml-8">
 			<ContentHeader>Engineer</ContentHeader>
-			<p class="text-xl">
+			<ContentText>
 				Although the pure thrill of problem solving is what first attracted me to programming, over
 				the past few years I have come to love visual design, which I prefer to show through my work
 				than tell. I also enjoy and have some experience working in other areas of web development
 				like backend.
-			</p>
+			</ContentText>
 		</div>
 	</div>
 </Section>
@@ -128,17 +131,17 @@
 	<div class="flex flex-row ml-8 mt-8">
 		<div class="flex flex-col w-1/2">
 			<ContentHeader>Flexport</ContentHeader>
-			<p class="text-xl relative left-4 pr-4">
+			<ContentText>
 				My most recent experience is my <strong>Full Stack Software Engineer</strong> internship at Flexport.
 				There I owned a support form integration feature end-to-end, heavily refactoring the feature
 				in one application and adding an implementation in another, allowing better user experience and
 				reduced complexity when modifying the support form.
-			</p>
-			<p class="text-xl relative left-4 pr-4">
+			</ContentText>
+			<ContentText>
 				This allowed me to work as a full-stack developer in a scrum team on my own project and
 				general tasks, developing with technologies such as React.js, Ruby on Rails, NextJS, Flow,
 				and GraphQL.
-			</p>
+			</ContentText>
 		</div>
 		<!-- <div class="w-4/12 m-4 flex-shrink"> -->
 		<img
