@@ -4,30 +4,43 @@
 	import '@fortawesome/fontawesome-free/js/all.js';
 
 	import Link from '$lib/Link.svelte';
-	import PageLink from '$lib/PageLink.svelte';
+
+	const socials = [
+		{
+			link: 'mailto:spjones329@gmail.com',
+			icon: 'fa-regular fa-envelope'
+		},
+		{
+			link: 'https://github.com/SamJones329',
+			icon: 'fa-brands fa-github'
+		},
+		{
+			link: 'https://www.linkedin.com/in/samuel-jones-32901/',
+			icon: 'fa-brands fa-linkedin'
+		}
+	];
 
 	let drawerOpen = false;
 </script>
 
 <nav aria-label="site navigation" class="flex flex-row justify-between fixed p-4 w-full z-50">
-	<ul class="flex flex-row">
-		<li>Samuel Jones</li>
-		<li>
-			<Link url="mailto:spjones329@gmail.com"><i class="fa-regular fa-envelope" /></Link>
-		</li>
-		<li>
-			<Link url="https://github.com/SamJones329"><i class="fa-brands fa-github" /></Link>
-		</li>
-		<li>
-			<Link url="https://www.linkedin.com/in/samuel-jones-32901/"
-				><i class="fa-brands fa-linkedin" /></Link
-			>
-		</li>
-	</ul>
+	<span class="font-display text-2xl font-semibold"
+		><Link url="/" newTab={false}>Samuel Jones</Link></span
+	>
 
-	<div>
-		<button aria-label="open site nav drawer" on:click={() => (drawerOpen = !drawerOpen)}
-			><img class="orange-shiny" src="menuicon.svg" alt="" srcset="" /></button
+	<div class="flex flex-row items-center ">
+		<ul class="flex flex-row text-2xl">
+			{#each socials as social}
+				<li class="mr-8">
+					<Link url={social.link}><i class={social.icon} /></Link>
+				</li>
+			{/each}
+		</ul>
+		<button
+			class="ml-4"
+			aria-label="open site nav drawer"
+			on:click={() => (drawerOpen = !drawerOpen)}
+			><img src="menuicon.svg" alt="" srcset="" /></button
 		>
 		<ul class={'absolute ' + (drawerOpen ? '' : 'hidden')}>
 			<li>
