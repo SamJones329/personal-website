@@ -5,6 +5,7 @@
 	import { throttleEvent } from '$lib/lib';
 	import { onMount } from 'svelte';
 	import SectionHeader from '$lib/SectionHeader.svelte';
+	import ContentHeader from '$lib/ContentHeader.svelte';
 
 	const SECTIONS = ['welcome', 'about', 'work', 'projects', 'contact'];
 	let sectionElems: HTMLCollection; // assumed this order ^
@@ -77,51 +78,48 @@
 	</ul>
 </nav>
 
+<img id="cloudtype2--1" src="LightCloudType2.svg" alt="" />
+<img id="cloudtype2--2" src="LightCloudType2.svg" alt="" />
 <img id="cloudtype2--3" src="LightCloudType2.svg" alt="" />
 <img id="sun" src="Sun.svg" alt="" />
 <img id="cloudtype1--1" src="LightCloudType1.svg" alt="" />
 <img id="cloudtype1--2" src="LightCloudType1.svg" alt="" />
-<img id="cloudtype2--1" src="LightCloudType2.svg" alt="" />
-<img id="cloudtype2--2" src="LightCloudType2.svg" alt="" />
 <img id="cloudtype3--1" src="LightCloudType3.svg" alt="" />
+
 <Section id="welcome">
-	<div class="flex flex-row">
-		<div class="flex flex-col">
-			<h1 class="text-right max-w-max font-display text-10xl">SAMUEL<br />JONES</h1>
+	<div class="flex flex-row h-full items-center">
+		<div class="flex flex-col ml-8">
+			<h1 class="text-right max-w-min font-display text-10xl">SAMUEL JONES</h1>
 			<img class="w-full pl-8" src="underline.svg" alt="" />
 		</div>
-		<img
-			src="logo.svg"
-			style="display: none;"
-			width="50%"
-			alt="Samuel Jones' Logo"
-			class="horiz-flip"
-		/>
+		<img src="logo.svg" width="50%" alt="Samuel Jones' Logo" class="horiz-flip" />
 	</div>
 </Section>
 
 <Section id="about">
 	<SectionHeader>About Me</SectionHeader>
-	<p>
+	<p class="text-2xl">
 		<strong>Hi!</strong> My name is <strong>Samuel Jones</strong>, and I am a senior in Computer
 		Science at Louisiana State University.
 	</p>
-	<div>
-		<h3>Student</h3>
-		<p>
-			I love learning about as many aspects of computer science as I can. To this end, I've taken
-			courses and done projects in areas including web development, cybersecurity, video game
-			design, computer vision, and autonomous robotics.
-		</p>
-	</div>
-	<div>
-		<h3>Engineer</h3>
-		<p>
-			Although the pure thrill of problem solving is what first attracted me to programming, over
-			the past few years I have come to love visual design, which I prefer to show through my work
-			than tell. I also enjoy and have some experience working in other areas of web development
-			like backend.
-		</p>
+	<div class="flex flex-row">
+		<div class="w-4/12">
+			<ContentHeader>Student</ContentHeader>
+			<p class="text-xl">
+				I love learning about as many aspects of computer science as I can. To this end, I've taken
+				courses and done projects in areas including web development, cybersecurity, video game
+				design, computer vision, and autonomous robotics.
+			</p>
+		</div>
+		<div class="w-4/12">
+			<ContentHeader>Engineer</ContentHeader>
+			<p class="text-xl">
+				Although the pure thrill of problem solving is what first attracted me to programming, over
+				the past few years I have come to love visual design, which I prefer to show through my work
+				than tell. I also enjoy and have some experience working in other areas of web development
+				like backend.
+			</p>
+		</div>
 	</div>
 </Section>
 
@@ -129,8 +127,8 @@
 	<SectionHeader>Work Experience</SectionHeader>
 	<div class="flex flex-row">
 		<div class="flex flex-col w-1/2">
-			<h3 class="text-4xl font-bold">Flexport</h3>
-			<p class="text-l relative left-4 pr-4">
+			<ContentHeader>Flexport</ContentHeader>
+			<p class="text-xl relative left-4 pr-4">
 				My most recent experience is my <strong>Full Stack Software Engineer</strong> internship at Flexport.
 				There I owned a support form integration feature end-to-end, heavily refactoring the feature
 				in one application and adding an implementation in another, allowing better user experience and
@@ -150,7 +148,7 @@
 <Section id="projects">
 	<SectionHeader>My Projects</SectionHeader>
 	<div>
-		<h3>Google Font Box</h3>
+		<ContentHeader>Google Font Box</ContentHeader>
 		<p>
 			My most recent project is Google Font Box! Google Font Box is a simple tool to help developers
 			develop font and color schemes for their next project, as users can make custom font schemes

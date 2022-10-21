@@ -9,7 +9,12 @@
 	"hosting": {
 		"public": "public",
 		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-		"rewrites": []
+		"rewrites": [
+			{
+				"source": "/huh",
+				"destination": "/huh.html"
+			}
+		]
 	},
 	"emulators": {
 		"functions": {
