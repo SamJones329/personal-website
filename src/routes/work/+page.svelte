@@ -16,7 +16,7 @@
 			a scrum team on my own project and general tasks, developing with technologies such as React.js,
 			Ruby on Rails, NextJS, Flow, and GraphQL.
 		</p>
-		<img src="flexport_logo.png" alt="Flexport logo" srcset="" />
+		<img src="flexport.jpg" alt="Flexport logo" srcset="" />
 	</div>
 	<div>
 		<h3>iCORE Research Lab</h3>

@@ -50,7 +50,7 @@
 				<Link url="/work">Work history</Link>
 			</li>
 			<li>
-				<Link url="/projects">More projects</Link>
+				<Link url="/work#projects">More projects</Link>
 			</li>
 		</ul>
 	</div>
