@@ -102,8 +102,8 @@
 		<strong>Hi!</strong> My name is <strong>Samuel Jones</strong>, and I am a senior in Computer
 		Science at Louisiana State University.
 	</p>
-	<div class="flex flex-row">
-		<div class="w-4/12">
+	<div class="flex flex-row mt-8">
+		<div class="w-4/12 ml-8">
 			<ContentHeader>Student</ContentHeader>
 			<p class="text-xl">
 				I love learning about as many aspects of computer science as I can. To this end, I've taken
@@ -111,7 +111,7 @@
 				design, computer vision, and autonomous robotics.
 			</p>
 		</div>
-		<div class="w-4/12">
+		<div class="w-4/12 ml-8">
 			<ContentHeader>Engineer</ContentHeader>
 			<p class="text-xl">
 				Although the pure thrill of problem solving is what first attracted me to programming, over
@@ -125,19 +125,29 @@
 
 <Section id="work">
 	<SectionHeader>Work Experience</SectionHeader>
-	<div class="flex flex-row">
+	<div class="flex flex-row ml-8 mt-8">
 		<div class="flex flex-col w-1/2">
 			<ContentHeader>Flexport</ContentHeader>
 			<p class="text-xl relative left-4 pr-4">
 				My most recent experience is my <strong>Full Stack Software Engineer</strong> internship at Flexport.
 				There I owned a support form integration feature end-to-end, heavily refactoring the feature
 				in one application and adding an implementation in another, allowing better user experience and
-				reduced complexity when modifying the support form. This allowed me to work as a full-stack developer
-				in a scrum team on my own project and general tasks, developing with technologies such as React.js,
-				Ruby on Rails, NextJS, Flow, and GraphQL.
+				reduced complexity when modifying the support form.
+			</p>
+			<p class="text-xl relative left-4 pr-4">
+				This allowed me to work as a full-stack developer in a scrum team on my own project and
+				general tasks, developing with technologies such as React.js, Ruby on Rails, NextJS, Flow,
+				and GraphQL.
 			</p>
 		</div>
-		<img src="flexport.jpg" alt="Flexport logo" srcset="" />
+		<!-- <div class="w-4/12 m-4 flex-shrink"> -->
+		<img
+			class="m-8 w-3/12 border-rad-10 box-shadow"
+			src="flexport.jpg"
+			alt="Flexport logo"
+			srcset=""
+		/>
+		<!-- </div> -->
 	</div>
 	<span
 		class="absolute h-screen flex items-center pr-4 top-0 right-0"

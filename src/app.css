@@ -32,3 +32,11 @@ body {
 .text-12xl {
   font-size: 7.5rem
 }
+
+.border-rad-10 {
+  border-radius: 10px;
+}
+
+.box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
