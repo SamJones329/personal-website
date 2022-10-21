@@ -13,6 +13,10 @@ body {
   background-attachment: fixed;
 }
 
+.bg-gradient-orng-shiny {
+  background-image: linear-gradient(315deg, #FFC062, #FF9A02, #FFC062);
+}
+
 .horiz-flip {
   transform: scaleX(-1);
 }
@@ -33,8 +37,12 @@ body {
   font-size: 7.5rem
 }
 
-.border-rad-10 {
-  border-radius: 10px;
+.br-4 {
+  border-radius: 1rem;
+}
+
+.br-8 {
+  border-radius: 2rem;
 }
 
 .box-shadow {

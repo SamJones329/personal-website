@@ -7,6 +7,8 @@
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import ContentHeader from '$lib/ContentHeader.svelte';
 	import ContentText from '$lib/ContentText.svelte';
+	import ButtonLink from '$lib/ButtonLink.svelte';
+	import ButtonContainer from '$lib/ButtonContainer.svelte';
 
 	const SECTIONS = ['welcome', 'about', 'work', 'projects', 'contact'];
 	let sectionElems: HTMLCollection; // assumed this order ^
@@ -144,12 +146,7 @@
 			</ContentText>
 		</div>
 		<!-- <div class="w-4/12 m-4 flex-shrink"> -->
-		<img
-			class="m-8 w-3/12 border-rad-10 box-shadow"
-			src="flexport.jpg"
-			alt="Flexport logo"
-			srcset=""
-		/>
+		<img class="m-8 w-3/12 br-4 box-shadow" src="flexport.jpg" alt="Flexport logo" srcset="" />
 		<!-- </div> -->
 	</div>
 	<span
@@ -160,17 +157,27 @@
 
 <Section id="projects">
 	<SectionHeader>My Projects</SectionHeader>
-	<div>
-		<ContentHeader>Google Font Box</ContentHeader>
-		<p>
-			My most recent project is Google Font Box! Google Font Box is a simple tool to help developers
-			develop font and color schemes for their next project, as users can make custom font schemes
-			from Google Fonts and choose their own colors as well.
-		</p>
-		<p>Technologies: Svelte, SvelteKit, TypeScript, Bootstrap, SCSS</p>
-		<Link url="https://samjones329.github.io/google-font-box">Try it out!</Link>
-		<Link url="https://github.com/samjones329/google-font-box">GitHub</Link>
-		<img src="googlefontboxscreenshot.png" alt="Screenshot of Google Font Box" />
+	<div class="flex flex-row ml-8 mt-8">
+		<div class="flex flex-col w-1/2">
+			<ContentHeader>Google Font Box</ContentHeader>
+			<ContentText>
+				My most recent project is Google Font Box! Google Font Box is a simple tool to help
+				developers develop font and color schemes for their next project, as users can make custom
+				font schemes from Google Fonts and choose their own colors as well.
+			</ContentText>
+			<ContentText
+				><span class="font-bold">Technologies:</span> Svelte, SvelteKit, TypeScript, Bootstrap, SCSS</ContentText
+			>
+			<ButtonContainer>
+				<ButtonLink url="https://samjones329.github.io/google-font-box">Try it out!</ButtonLink>
+				<ButtonLink url="https://github.com/samjones329/google-font-box">GitHub</ButtonLink>
+			</ButtonContainer>
+		</div>
+		<img
+			class="m-8 w-8/12 br-4 box-shadow"
+			src="googlefontboxscreenshot.jpg"
+			alt="Screenshot of Google Font Box"
+		/>
 	</div>
 	<span aria-label="click this or scroll right to see more projects">See More</span>
 </Section>
