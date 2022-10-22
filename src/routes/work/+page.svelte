@@ -49,6 +49,6 @@
 		<p>Technologies: Svelte, SvelteKit, TypeScript, Bootstrap, SCSS</p>
 		<Link url="https://samjones329.github.io/google-font-box">Try it out!</Link>
 		<Link url="https://github.com/samjones329/google-font-box">GitHub</Link>
-		<img src="googlefontboxscreenshot.png" alt="Screenshot of Google Font Box" />
+		<img src="googlefontboxscreenshot.jpg" alt="Screenshot of Google Font Box" />
 	</div>
 </seciont>
