@@ -2,19 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-light-700: #397699;
+  --gradient-accent: linear-gradient(315deg, #FFC062, #FF9A02, #FFC062);
+  --bg-gradient-light: linear-gradient(45deg, #55C1FF, #C8EBFF);
+}
+
 html {
   scroll-behavior: smooth;
   font-family: 'Raleway', sans-serif;
 }
 
 body {
-  overflow: hidden;
-  background-image: linear-gradient(45deg, #55C1FF, #C8EBFF);
+  /* overflow: hidden; */
+  overflow-x: hidden;
+  background-image: var(--bg-gradient-light);
   background-attachment: fixed;
 }
 
-.bg-gradient-orng-shiny {
-  background-image: linear-gradient(315deg, #FFC062, #FF9A02, #FFC062);
+.bg-primary-light-700 {
+  background-color: var(--primary-light-700);
+}
+
+.text-gradient-primary {
+  color: var(--gradient-accent);
+}
+
+.bg-gradient-accent {
+  background-image: var(--gradient-accent);
+}
+
+.text-gradient-accent {
+  background-image: var(--gradient-accent);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .horiz-flip {
@@ -41,10 +64,16 @@ body {
   border-radius: 1rem;
 }
 
-.br-8 {
+.rounded-4xl {
   border-radius: 2rem;
 }
 
 .box-shadow {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+@media only screen and (min-width: 1100px) {
+  body {
+    overflow: hidden;
+  }
 }

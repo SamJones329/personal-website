@@ -1,3 +1,3 @@
-<div class="flex flex-row m-4">
+<div class="flex flex-wrap flex-row m-4 flex-wrap">
 	<slot />
 </div>

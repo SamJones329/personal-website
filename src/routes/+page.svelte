@@ -9,6 +9,7 @@
 	import ContentText from '$lib/ContentText.svelte';
 	import ButtonLink from '$lib/ButtonLink.svelte';
 	import ButtonContainer from '$lib/ButtonContainer.svelte';
+	import MediaQuery from '$lib/MediaQuery.svelte';
 
 	const SECTIONS = ['welcome', 'about', 'work', 'projects', 'contact'];
 	let sectionElems: HTMLCollection; // assumed this order ^
@@ -16,7 +17,7 @@
 
 	function discreteScroll(e: WheelEvent & { currentTarget: EventTarget & Window }) {
 		e.preventDefault();
-		console.log(e);
+		// console.log(e);
 		if (e.deltaY > 0) {
 			//down
 			if (activeSection < SECTIONS.length - 1) {
@@ -51,9 +52,19 @@
 		}
 	};
 
+	const discreteScrollEventHandler = throttleEvent(discreteScroll, 1000, true);
 	// TODO - set current active section when page is refreshed
 	onMount(() => {
-		window.addEventListener('wheel', throttleEvent(discreteScroll, 1000, true), { passive: false });
+		var discreteScrollMediaQuery = window.matchMedia('(min-width: 1100px)');
+		discreteScrollMediaQuery.addEventListener('change', (e) => {
+			if (e.matches) {
+				console.log('adding discrete scroll');
+				window.addEventListener('wheel', discreteScrollEventHandler, { passive: false });
+			} else {
+				console.log('removing discrete scroll');
+				window.removeEventListener('wheel', discreteScrollEventHandler);
+			}
+		});
 		sectionElems = document.getElementsByTagName('section');
 		console.log(sectionElems);
 		getActiveSec();
@@ -93,7 +104,7 @@
 	<div class="flex flex-row h-full items-center">
 		<div class="flex flex-col ml-8">
 			<h1 class="text-right max-w-min font-display text-10xl">SAMUEL JONES</h1>
-			<img class="w-full pl-8" src="underline.svg" alt="" />
+			<img class="pl-8 w-10/12" src="underline.svg" alt="" />
 		</div>
 		<img src="logo.svg" width="50%" alt="Samuel Jones' Logo" class="horiz-flip" />
 	</div>
@@ -146,7 +157,12 @@
 			</ContentText>
 		</div>
 		<!-- <div class="w-4/12 m-4 flex-shrink"> -->
-		<img class="m-8 w-3/12 br-4 box-shadow" src="flexport.jpg" alt="Flexport logo" srcset="" />
+		<img
+			class="m-8 w-3/12 rounded-xl box-shadow"
+			src="flexport.jpg"
+			alt="Flexport logo"
+			srcset=""
+		/>
 		<!-- </div> -->
 	</div>
 	<span
@@ -170,11 +186,12 @@
 			>
 			<ButtonContainer>
 				<ButtonLink url="https://samjones329.github.io/google-font-box">Try it out!</ButtonLink>
-				<ButtonLink url="https://github.com/samjones329/google-font-box">GitHub</ButtonLink>
+				<ButtonLink url="https://github.com/samjones329/google-font-box" inverted>GitHub</ButtonLink
+				>
 			</ButtonContainer>
 		</div>
 		<img
-			class="m-8 w-8/12 br-4 box-shadow"
+			class="m-8 w-8/12 rounded-xl box-shadow"
 			src="googlefontboxscreenshot.jpg"
 			alt="Screenshot of Google Font Box"
 		/>
